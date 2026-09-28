@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Link Thiệp Mời & Xem Trước</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen py-8">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg mx-4">
+        <h1 class="text-2xl font-bold text-center text-slate-800 mb-6">Tạo Link & Xem Trước Thiệp</h1>
+
+        <!-- Ô nhập tên khách mời -->
+        <div class="mb-5">
+            <label class="block text-slate-700 text-sm font-semibold mb-2" for="guestName">
+                Tên khách mời:
+            </label>
+            <input type="text" id="guestName" placeholder="Ví dụ: Tẹt đây, Anh Tuấn..." 
+                oninput="updatePreview()"
+                class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent text-slate-800">
+        </div>
+
+        <!-- Khung xem trước (Live Preview) mô phỏng thiệp của bạn -->
+        <div class="mb-6 bg-rose-50 border border-rose-200 p-4 rounded-xl text-center">
+            <p class="text-xs font-medium text-rose-500 uppercase tracking-wider mb-1">Xem trước giao diện thiệp:</p>
+            <div class="py-2">
+                <!-- Thẻ bạn yêu cầu được tích hợp chuẩn logic -->
+                <p class="cover-guest text-slate-800 font-semibold text-lg" data-guest>Thân Mời</p>
+            </div>
+        </div>
+
+        <!-- Nút tạo link -->
+        <button onclick="generateLink()" 
+            class="w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md">
+            Tạo Link Hoàn Chỉnh
+        </button>
+
+        <!-- Hiển thị kết quả -->
+        <div id="resultBox" class="mt-6 hidden">
+            <label class="block text-slate-700 text-sm font-semibold mb-2">
+                Link của bạn:
+            </label>
+            <div class="flex items-center gap-2">
+                <input type="text" id="outputLink" readonly 
+                    class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-600 text-sm select-all">
+                <button onclick="copyLink()" 
+                    class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition duration-200 shrink-0">
+                    Copy
+                </button>
+            </div>
+            <p id="copyStatus" class="text-xs text-emerald-600 font-medium mt-2 text-right hidden">Đã copy vào bộ nhớ tạm!</p>
+        </div>
+    </div>
+
+    <script>
+        // Hàm cập nhật trực tiếp theo logic của bạn khi người dùng gõ phím
+        function updatePreview() {
+            const rawValue = document.getElementById('guestName').value.trim();
+            const guest = rawValue ? rawValue.toLocaleUpperCase() : '';
+            
+            document.querySelectorAll('[data-guest]').forEach((element) => {
+                element.textContent = guest ? `Thân mời: ${guest}` : 'Thân Mời';
+            });
+        }
+
+        function generateLink() {
+            const nameInput = document.getElementById('guestName').value.trim();
+            const resultBox = document.getElementById('resultBox');
+            const outputLink = document.getElementById('outputLink');
+
+            if (!nameInput) {
+                alert('Vui lòng nhập tên khách mời!');
+                return;
+            }
+
+            // Gốc domain của bạn
+            const baseUrl = "https://dungvn-dev.github.io/ngocdung-ngocanh/";
+            
+            // Mã hóa tên khách sang chuẩn URL
+            const encodedName = encodeURIComponent(nameInput);
+            const finalLink = `${baseUrl}?guest=${encodedName}`;
+
+            // Hiển thị kết quả
+            outputLink.value = finalLink;
+            resultBox.classList.remove('hidden');
+        }
+
+        function copyLink() {
+            const outputLink = document.getElementById('outputLink');
+            const copyStatus = document.getElementById('copyStatus');
+
+            outputLink.select();
+            outputLink.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(outputLink.value);
+
+            copyStatus.classList.remove('hidden');
+            setTimeout(() => {
+                copyStatus.classList.add('hidden');
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
