@@ -332,3 +332,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Thiết lập thời gian chuyển ảnh (ví dụ: 3000ms = 3 giây)
+const slideIntervalTime = 3000; 
+
+let slideTimer = null;
+
+// Hàm bắt đầu tự động chạy
+function startAutoSlide() {
+  slideTimer = setInterval(() => {
+    const nextBtn = document.getElementById('nextPhoto');
+    if (nextBtn) {
+      nextBtn.click(); // Giả lập cú click vào nút "Ảnh tiếp"
+    }
+  }, slideIntervalTime);
+}
+
+// Hàm dừng tự động chạy
+function stopAutoSlide() {
+  clearInterval(slideTimer);
+}
+
+// Khởi chạy khi tải trang
+startAutoSlide();
+
+// (Tùy chọn) Dừng tự động chạy khi người dùng rê chuột vào gallery để họ xem kỹ hơn, 
+// và tiếp tục chạy lại khi di chuột ra ngoài.
+const galleryElement = document.querySelector('.gallery');
+if (galleryElement) {
+  galleryElement.addEventListener('mouseenter', stopAutoSlide);
+  galleryElement.addEventListener('mouseleave', startAutoSlide);
+}
