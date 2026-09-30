@@ -57,7 +57,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .cover-pattern--top { top: -65px; left: -124px; transform: rotate(30deg); }
 .cover-pattern--bottom { right: -156px; bottom: -39px; transform: rotate(-30deg); }
 .cover-names { max-width: 470px; margin: 0 0 8px; color: var(--gold); font: 400 30px/1.13 "Playfair Display", Baskerville, serif; }
-.cover-names span { display: block; margin: 1px 0; font-family: Baskerville, "Times New Roman", serif; font-size: .48em; }
+.cover-names span { display: block; margin: 1px 0; font-family: "Imperial Scrip", cursive; font-size: .48em; font-style: normal; padding: 10px;}
 .cover-divider { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--gold); font-size: 14px; }
 .cover-divider i { width: 40px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
 .cover-divider i:last-child { transform: scaleX(-1); }
@@ -77,7 +77,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-names { position: relative; z-index: 1; display: grid; max-width: 872px; margin: 16px auto 0; padding: 0 40px; grid-template-columns: minmax(0, 1fr) 83px minmax(0, 1fr); align-items: center; gap: 20px; color: var(--gold); letter-spacing: 1rem; }
 .hero-person { min-width: 0; text-align: center; }
 .hero-person span { display: block; margin-bottom: 4px; color: var(--gold); font: 400 14px "Avenir Next", Arial, sans-serif; }
-.hero-person strong { display: block; overflow: visible; font: 300 23px/1.5 var(--name-font); letter-spacing: 0; text-transform: uppercase; white-space: nowrap; }
+.hero-person strong { display: block; overflow: visible; font: 300 23px/1.5 var(--name-font); letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
 .hero-happiness { width: 83px; height: 83px; object-fit: contain; }
 .hero-photo-wrap { position: relative; z-index: 1; width: min(372px, calc(100% - 48px)); margin: 12px auto 0; }
 .hero-photo-frame { position: relative; width: 100%; aspect-ratio: 286 / 481; transform: translateY(73px); }
@@ -102,9 +102,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .announcement { margin: 32px auto 0; color: var(--wine); text-align: center; }
 .announcement > p { margin: 0; font: 400 20px/1.35 var(--body-font); letter-spacing: .1em; }
 .announcement__names { display: flex; margin: 16px auto 24px; align-items: center; justify-content: center; gap: 12px; flex-direction: column; }
-.announcement__names h3 { display: flex; width: calc(100% - 24px); min-width: 0; min-height: 44px; margin: 0; align-items: center; justify-content: center; color: var(--wine); font: 400 clamp(38px, 10.5vw, 64px)/1.02 "EB Garamond", var(--body-font); letter-spacing: -.015em; white-space: nowrap; }
+.announcement__names h3 { display: flex; width: calc(100% - 24px); min-width: 0; min-height: 44px; margin: 0; align-items: center; justify-content: center; color: var(--wine); font: 400 clamp(38px, 10.5vw, 64px)/1.02 "Big Caslon", var(--body-font); letter-spacing: -.015em; white-space: nowrap; }
 .announcement__names span { color: var(--gray); font: 400 13px var(--body-font); letter-spacing: .2em; }
-.announcement__names b { color: var(--gray); font: 400 35px "EB Garamond", var(--body-font); }
+.announcement__names b { color: var(--gray); font-family: "Imperial Scrip", cursive;}
 .announcement__ceremony { color: var(--wine); font-size: 20px !important; line-height: 1.5 !important; }
 .announcement__time { margin-top: 8px !important; margin-bottom: 0 !important; color: var(--gray); font-size: 15px !important; letter-spacing: 0 !important; }
 .date-lockup { display: flex; align-items: center; justify-content: center; gap: 16px; color: var(--gray); font: 400 15px var(--body-font); }
@@ -271,12 +271,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .rsvp-form .button { margin: 6px auto 0; }
 
 @media (max-width: 620px) {
-  .hero-section { padding-bottom: 100px; }
+  .hero-section { padding-bottom: 50px; }
   .hero-sunburst { width: min(671px, 130vw); }
   .eyebrow { padding-top: 40px; font-size: 11px; }
   .hero-names { margin-top: 12px; padding: 0 16px; grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr); gap: 14px; }
   .hero-person span { margin-bottom: 3px; font-size: 11px; }
-  .hero-person strong { font-size: 16px; }
+  .hero-person strong { font-size: 18px; }
   .hero-happiness { width: 64px; height: 64px; }
   .hero-photo-wrap { width: min(286px, calc(100% - 48px)); margin-top: 8px; }
   .hero-photo-frame { transform: translateY(50px); }
@@ -294,7 +294,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .announcement__names { gap: 12px; }
   .announcement__names h3 { font-size: clamp(38px, 10.5vw, 48px); line-height: 1.02; }
   .announcement__names span { font-size: 10px; }
-  .announcement__names b { font-size: 27px; }
+  .announcement__names b { font-size: 18px; }
   .announcement__time { font-size: 16px !important; }
   .date-lockup { gap: 10px; font-size: 12px; }
   .date-lockup strong { font-size: 30px; }
@@ -326,7 +326,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .guestbook-form { padding: 17px; }
   .wish p { display: grid; font-size: 16px; }
   .gift-section { padding-top: 38px; }
-  .footer { padding-bottom: 104px; }
+  .footer { padding-bottom: 50px; }
   .music-button { right: 14px; bottom: 18px; width: 44px; height: 44px; }
   .music-hint { right: 70px; bottom: 24px; }
   .chat-button { position: absolute; right: 68px; bottom: 24px; width: 48px; height: 48px; }
@@ -492,3 +492,5 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         font-size: 1rem; /* Tương đương text-base trên md */
     }
 }
+
+.name-guest { text-align: center; color: var(--wine)}

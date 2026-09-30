@@ -12,6 +12,10 @@ document.querySelectorAll('[data-guest]').forEach((element) => {
   element.textContent = guest ? `Thân mời: ${guest}` : 'Thân Mời';
 });
 
+document.querySelectorAll('[data-guest-in]').forEach((element) => {
+  element.textContent = guest ? `Thân mời: ${guest}` : '';
+});
+
 const guestInput = document.querySelector('input[name="guest"]');
 if (guestInput && guest) {
   guestInput.value = guest;
@@ -154,7 +158,6 @@ document.addEventListener('pointerdown', () => {
 }, { once: true, passive: true });
 
 const photos = [
-  'assets/wedding-1.jpg',
   'assets/wedding-2.jpg',  
   'assets/wedding-3.jpg',
   'assets/wedding-4.jpg',
@@ -164,6 +167,13 @@ const photos = [
   'assets/wedding-9.jpg',
   'assets/wedding-10.jpg',
   'assets/wedding-11.jpg',
+  'assets/wedding-12.jpg',
+  'assets/wedding-13.jpg',
+  'assets/wedding-14.jpg',
+  'assets/wedding-15.jpg',
+  'assets/wedding-16.jpg',
+  'assets/wedding-17.jpg',
+  'assets/wedding-1.jpg',
 ];
 const galleryStage = document.querySelector('#galleryStage');
 let activePhoto = photos.length - 1;
@@ -171,7 +181,7 @@ let activePhoto = photos.length - 1;
 const galleryCards = photos.map((photo, index) => {
   const card = document.createElement('button');
   card.type = 'button';
-  card.className = `gallery__card ${photo.endsWith('wedding-3.jpg') ? 'gallery__card--square' : 'gallery__card--portrait'}`;
+  card.className = `gallery__card ${photo.endsWith('wedding-1.jpg') ? 'gallery__card--square' : 'gallery__card--portrait'}`;
   card.setAttribute('aria-label', `Xem ảnh cưới ${index + 1}`);
   const image = document.createElement('img');
   image.src = photo;
@@ -184,6 +194,7 @@ const galleryCards = photos.map((photo, index) => {
 
 function showPhoto(index) {
   activePhoto = (index + photos.length) % photos.length;
+  console.log(activePhoto);
   galleryCards.forEach((card, cardIndex) => {
     let distance = cardIndex - activePhoto;
     if (distance > photos.length / 2) distance -= photos.length;
@@ -221,7 +232,7 @@ function closeModal(modal) {
   if (lastModalTrigger instanceof HTMLElement) lastModalTrigger.focus();
 }
 
-document.querySelector('#giftButton').addEventListener('click', () => openModal('#giftModal'));
+// document.querySelector('#giftButton').addEventListener('click', () => openModal('#giftModal'));
 document.querySelector('#rsvpButton').addEventListener('click', () => openModal('#rsvpModal'));
 document.querySelectorAll('[data-close-modal]').forEach((button) => {
   button.addEventListener('click', () => closeModal(button.closest('.modal')));
