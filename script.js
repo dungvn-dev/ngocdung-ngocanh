@@ -158,22 +158,22 @@ document.addEventListener('pointerdown', () => {
 }, { once: true, passive: true });
 
 const photos = [
-  'assets/wedding-2.webp',  
-  'assets/wedding-3.webp',
-  'assets/wedding-4.webp',
-  'assets/wedding-5.webp',
-  'assets/wedding-6.webp',
-  'assets/wedding-8.webp',
-  'assets/wedding-9.webp',
-  'assets/wedding-10.webp',
-  'assets/wedding-11.webp',
-  'assets/wedding-12.webp',
-  'assets/wedding-13.webp',
-  'assets/wedding-14.webp',
-  'assets/wedding-15.webp',
-  'assets/wedding-16.webp',
-  'assets/wedding-17.webp',
-  'assets/wedding-1.webp',
+  'assets/wedding-2.jpg',  
+  'assets/wedding-3.jpg',
+  'assets/wedding-4.jpg',
+  'assets/wedding-5.jpg',
+  'assets/wedding-6.jpg',
+  'assets/wedding-8.jpg',
+  'assets/wedding-9.jpg',
+  'assets/wedding-10.jpg',
+  'assets/wedding-11.jpg',
+  'assets/wedding-12.jpg',
+  'assets/wedding-13.jpg',
+  'assets/wedding-14.jpg',
+  'assets/wedding-15.jpg',
+  'assets/wedding-16.jpg',
+  'assets/wedding-17.jpg',
+  'assets/wedding-1.jpg',
 ];
 const galleryStage = document.querySelector('#galleryStage');
 let activePhoto = photos.length - 1;
